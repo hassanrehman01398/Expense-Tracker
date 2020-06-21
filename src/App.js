@@ -10,14 +10,18 @@ import { Addtransaction } from './components/Addtransaction'
 import { Transactionhistory } from './components/Transactionhistory'
 
 function App() {
+  const [darkMode,setDarkmode]=React.useState(false);
   return (  
-    <div>
-    <Header />
-  
-    <div className="container">
+
+    <div className={darkMode ? "dark_mode" : "light_mode" } > 
+    <Header  />
+  <div>
+    <button onClick={()=>setDarkmode(prevMode => !prevMode)}>Toggle Mode</button>
+  </div>
+    <div >
       <Balance />
     </div>
-   <div>
+   <div className={darkMode ? "container1" : "container" }>
      <Accountsummary />
    </div>
    <div>
